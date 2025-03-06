@@ -7,13 +7,15 @@ public class Game
 {
     private Player player;
     private Triangle triangle;
+    private Border border;
 
     public void Setup()
     {
         Window.SetTitle("2D Game");
         Window.SetSize(400, 400);
-        player = new Player(200, 350); // Initialize Player
-        triangle = new Triangle(); // Initialize Triangle
+        player = new Player(200, 350);
+        triangle = new Triangle();
+        border = new Border();
     }
 
     public void Update()
@@ -21,8 +23,10 @@ public class Game
         Window.ClearBackground(Color.Cyan);
 
         player.Update();
-        player.Render();
+        border.CheckCollision(player); // Prevents player from passing the borders
 
+        border.Render(); // Draw borders
+        player.Render();
         triangle.Update();
         triangle.Render();
     }
