@@ -37,4 +37,5 @@ public class Triangle
             new Vector2(x, y + 20)    // Bottom center
         );
     }
+
 }

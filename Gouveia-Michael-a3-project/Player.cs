@@ -37,4 +37,5 @@ public class Player
         Draw.LineColor = Color.Black;
         Draw.Circle(X, Y, 20);
     }
+
 }
