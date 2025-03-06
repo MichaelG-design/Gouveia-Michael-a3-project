@@ -22,12 +22,33 @@ public class Game
     {
         Window.ClearBackground(Color.Cyan);
 
+        border.Render();
         player.Update();
-        border.CheckCollision(player); // Prevents player from passing the borders
-
-        border.Render(); // Draw borders
-        player.Render();
         triangle.Update();
+        player.Render();
         triangle.Render();
+
+        // Check for collision
+        if (IsColliding(player, triangle))
+        {
+            ResetGame();
+        }
+    }
+
+    private bool IsColliding(Player p, Triangle t)
+    {
+        float playerRadius = 20;
+        float triangleSize = 10; // Half the width of the triangle
+
+        return (p.X + playerRadius > t.X - triangleSize &&
+                p.X - playerRadius < t.X + triangleSize &&
+                p.Y + playerRadius > t.Y &&
+                p.Y - playerRadius < t.Y + 20);
+    }
+
+    private void ResetGame()
+    {
+        player.ResetPosition();
+        triangle.ResetPosition();
     }
 }

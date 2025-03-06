@@ -5,8 +5,8 @@ namespace MohawkGame2D;
 
 public class Player
 {
-    public float X { get; set; } // Changed from private to public
-    public float Y { get; set; }
+    public float X { get; private set; }
+    public float Y { get; private set; }
     public float speed = 5;
 
     public Player(float startX, float startY)
@@ -19,16 +19,22 @@ public class Player
     {
         if (Input.IsKeyboardKeyDown(KeyboardInput.A))
         {
-            X -= speed; // Move left
+            X -= speed;
         }
         if (Input.IsKeyboardKeyDown(KeyboardInput.D))
         {
-            X += speed; // Move right
+            X += speed;
         }
 
-        // Keep player inside the screen borders
-        if (X - 20 < 20) X = 20 + 20;   // Left wall
-        if (X + 20 > 380) X = 380 - 20; // Right wall
+        // Prevent player from going past borders
+        if (X - 20 < 20) X = 20 + 20;
+        if (X + 20 > 380) X = 380 - 20;
+    }
+
+    public void ResetPosition()
+    {
+        X = 200;
+        Y = 350;
     }
 
     public void Render()
@@ -37,5 +43,4 @@ public class Player
         Draw.LineColor = Color.Black;
         Draw.Circle(X, Y, 20);
     }
-
 }
