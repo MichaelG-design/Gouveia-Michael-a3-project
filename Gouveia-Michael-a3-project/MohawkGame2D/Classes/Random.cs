@@ -315,6 +315,7 @@ public static class Random
     public static Vector2 Vector2(float minX, float maxX, float minY, float maxY)
         => new(Float(minX, maxX), Float(minY, maxY));
 
+
     #endregion
 
 }

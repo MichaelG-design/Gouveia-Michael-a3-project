@@ -7,7 +7,7 @@ public class Player
 {
     public float X { get; private set; }
     public float Y { get; private set; }
-    private float speed = 5;
+    public float speed = 5;
 
     public Player(float startX, float startY)
     {
