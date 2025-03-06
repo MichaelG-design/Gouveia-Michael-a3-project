@@ -39,10 +39,6 @@ public class Triangle
     {
         Draw.FillColor = Color.Red;
         Draw.LineColor = Color.Black;
-        Draw.Triangle(
-            new Vector2(X - 10, Y),
-            new Vector2(X + 10, Y),
-            new Vector2(X, Y + 20)
-        );
+        Draw.Triangle(new Vector2(X - 10, Y), new Vector2(X + 10, Y), new Vector2(X, Y + 20));
     }
 }

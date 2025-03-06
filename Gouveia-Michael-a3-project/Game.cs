@@ -28,7 +28,7 @@ public class Game
         player.Render();
         triangle.Render();
 
-        // Check for collision
+ 
         if (IsColliding(player, triangle))
         {
             ResetGame();
@@ -38,7 +38,7 @@ public class Game
     private bool IsColliding(Player p, Triangle t)
     {
         float playerRadius = 20;
-        float triangleSize = 10; // Half the width of the triangle
+        float triangleSize = 10; 
 
         return (p.X + playerRadius > t.X - triangleSize &&
                 p.X - playerRadius < t.X + triangleSize &&
